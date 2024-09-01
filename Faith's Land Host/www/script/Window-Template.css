@@ -1,0 +1,507 @@
+/*General Propriety*/
+*
+{
+    font-family: "Main";
+    user-select: none;
+    transition: all 0.2s ease;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    text-align: center;
+    color: var(--font);
+    scroll-behavior: smooth;
+}
+html
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body
+{
+    background : var(--back);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    background: var(--back);
+}
+*:focus
+{
+    outline: none;
+}
+*::-webkit-scrollbar
+{
+    display: none;
+    overflow: hidden;
+}
+label
+{
+    font-family: "Main";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    font-size: 20px;
+}
+:root
+{
+    --mood : #251802;
+    --font : #251802;
+    --mood-lite : #2518029a;
+    --mood-back : #2518026b;
+    --back : #FAF8F1;
+    --general : #F7DCB9;
+    --back-general : #B99470;
+    --maxborder : 999999999px;
+    --fontverse :  #FAF8F1;
+}
+h1
+{
+    font-family: "UpTitle";
+    font-size: 24px;
+    margin: 20px 0px 20px 0px;
+}
+h5
+{
+    font-weight: 800;
+    font-size: 19px;
+}
+h2
+{
+    font-family: "Title";
+    font-size: 27px;
+    width: 95%;
+}
+h4
+{
+    font-family: "Sub";
+    opacity: 85%;
+}
+/**/
+/*Windows*/
+.formatblock
+{
+    display: none;
+    background: var(--back);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+@media (orientation:landscape) and (max-height:395px)
+{
+    .formatblock
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000000;
+    }
+}
+@media (orientation:portrait) and (max-width:335px)
+{
+    .formatblock
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000000;
+    }
+}
+.window
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    transition: all ease-out 0.5s;
+    transform-origin: top left;
+    overflow: hidden;
+}
+.subwindow
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    transition: all ease-out 0.5s;
+    transform-origin: top left;
+    overflow: hidden;
+}
+.conta
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    transition: all ease-out 0.5s;
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.welcomeimg
+{
+    width: 300px;
+    height: 300px;
+    scale: 1;
+    animation: Welc1 0.7s;
+}
+.welcomeimg2
+{
+    width: 300px;
+    height: 300px;
+    scale: 1;
+    animation: infinite Welc2 1.5s;
+}
+.backwelcomeimg
+{
+    border-radius: var(--maxborder);
+    width: 290px;
+    height: 290px;
+    border: dashed 8px var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.content
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+}
+.subtext
+{
+    width: 85%;
+}
+.errorscreen
+{
+    opacity: 0%;
+    background: var(--mood);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+}
+@keyframes error 
+{
+    50%
+    {
+        opacity: 100%;
+    }    
+    100%
+    {
+        opacity: 0%;
+    }
+}
+@media (orientation: landscape)
+{
+    .subwindow
+    {
+        flex-direction: row;
+    }
+    .conta
+    {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .content
+    {
+        max-width: 50%;
+    }
+    .reverse
+    {
+        flex-direction: row-reverse;
+    }
+}
+@media (min-width: 1179px)
+{
+    .welcomeimg
+    {
+        width: 400px;
+        height: 400px;
+    }
+    .welcomeimg2
+    {
+        width: 400px;
+        height: 400px;
+    }
+    .backwelcomeimg
+    {
+        width: 390px;
+        height: 390px;
+    }
+}
+@keyframes Welc1
+{
+    0%
+    {
+        margin-top: 200px;
+    }
+    75%
+    {
+        margin-top: -20px;
+    }
+    100%
+    {
+        margin-top: 0;
+    }
+}
+@keyframes Welc2
+{
+    0%
+    {
+        scale: 1;
+    }
+    50%
+    {
+        scale: 1.05;
+    }
+    100%
+    {
+       scale: 1;
+    }
+}
+@keyframes window-out 
+{
+    0%
+    {
+        left: 50%;
+        scale: 1;
+        opacity: 100%;
+    }
+    100%
+    {
+        left: 20%;
+        scale: 0.5;
+        opacity: 0%;
+    }
+}
+@keyframes window-in-out
+{   
+    0%
+    {
+        left: 50%;
+        scale: 1;
+        opacity: 100%;
+    }
+    100%
+    {
+        left: 80%;
+        scale: 0.5;
+        opacity: 0%;
+    }
+}
+@keyframes window-out-in
+{   
+    0%
+    {
+        left: 20%;
+        scale: 0.5;
+        opacity: 0%;
+    }
+    100%
+    {
+        left: 50%;
+        scale: 1;
+        opacity: 100%;
+    }
+}
+@keyframes window-in
+{
+    0%
+    {
+        left: 80%;
+        scale: 0.5;
+        opacity: 0%;
+    }
+    100%
+    {
+        left: 50%;
+        scale: 1;
+        opacity: 100%;
+    }
+}
+@keyframes subwindow-out 
+{
+    0%
+    {
+        left: 50%;
+        opacity: 100%;
+    }
+    100%
+    {
+        left: 0%;
+        opacity: 0%;
+    }
+}
+@keyframes subwindow-out-in
+{
+    0%
+    {
+        left: 0%;
+        opacity: 0%;
+    }   
+    100%
+    {
+        left: 50%;
+        opacity: 100%;
+    }
+}
+@keyframes subwindow-in
+{
+    0%
+    {
+        left: 100%;
+        opacity: 0%;
+    }
+    100%
+    {
+        left: 50%;
+        opacity: 100%;
+    }
+}
+@keyframes subwindow-in-out
+{
+    0%
+    {
+        left: 50%;
+        opacity: 100%;
+    }
+    100%
+    {
+        left: 100%;
+        opacity: 0%;
+    }
+}
+@keyframes dissapear 
+{
+    0%{
+        opacity: 100%;
+    }   
+    100%
+    {
+        opacity: 0%;
+    }
+}
+@keyframes appear 
+{
+    0%
+    {
+        opacity: 0%;
+    }   
+    100%
+    {
+        opacity: 100%;
+    }
+}
+.upwindow
+{
+    border: dashed 8px var(--mood);
+    position: fixed;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    display: none;
+    height: auto;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%,-100%);
+    transition: all ease-out 0.35s;
+    transform-origin: top left;
+    max-height: 80%;
+    top: 100%;
+    background: var(--back);
+    width: 95%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    animation: upapp 350ms ease;
+    border-bottom: 0px;
+}
+.barb
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: var(--mood-back);
+    opacity: 0%;
+    position: fixed;
+    transition: all 0.35s ease;
+}
+@keyframes upapp 
+{
+    0%
+    {
+        top:250%;
+        opacity: 0%;
+    }  
+    50%
+    {
+        opacity: 100%;
+    }
+    100%
+    {
+        top:100%;
+        opacity:100%;
+    }
+}
+@keyframes suapp
+{
+    0%
+    {
+        top:100%;
+        opacity:100%;
+    }
+    50%
+    {
+        opacity: 100%;
+    }
+    100%
+    {
+        top:250%;
+        opacity: 0%;
+    }  
+}
+iframe
+{
+    width: 100%;
+    height: 100000px;
+}
+.normalwindow
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10000px;
+    z-index: 0;
+    transition: all ease-out 0.5s;
+    transform-origin: top left;
+}
