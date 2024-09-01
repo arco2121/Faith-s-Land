@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.devcolombaramarco.faithsland" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Faith's Land</name>
+    <description>Faith is here to help you with your health</description>
+    <author email="devcolombaramarco@gmail.com" href="https://cordova.apache.org">
+        Marco Colombara
+    </author>
+    <content src="index.html" />
+    <icon src="www/img/logo.png" density="xxxhdpi"/>
+    <preference name="SplashScreen" value="www/img/back-logo.png" />
+    <platform name="android">
+        <icon background="www/img/back-logo.png" density="xxxhdpi" foreground="www/img/for-logo.png" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/img/back-logo.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#FAF8F1" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+    </platform>
+    <preference name="SplashScreenBackgroundColor" value="#FAF8F1" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+</widget>
