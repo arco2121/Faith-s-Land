@@ -118,7 +118,10 @@ class Chat
         
             const result = await response.json();
             this.wait = false;
-        
+            if(!result.success)
+            {
+                return null
+            }
             return result.text;
 
         } 
@@ -126,7 +129,7 @@ class Chat
         {
             this.wait = false;
             console.error(error);
-            return "There was an error processing your request.";
+            return null
         }        
     }    
     CreateMessage(string,role)

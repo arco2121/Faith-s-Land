@@ -261,7 +261,7 @@ const Language = {
         "addsleep":"Registra l'intervallo di sonno di questa notte",
         "Hello": "Saluti, sono Faith the Budgie e sono il tuo assistente personale per la salute mentale. Cosa posso fare per te oggi?",
         "reminder":"Promemoria",
-        "error":"Scusa ma ora non posso risponere, prova piu tardi",
+        "error":"Scusa ma ora non posso rispondere, prova piu tardi",
         "privacy" : "Privacy Policy",
         "terms": "Termini e Condizioni",
         "inhale" : "Respira",

@@ -1677,7 +1677,7 @@ const Modify = async (where) => {
         const acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value)
         const h = UserAccount.Compare(Account.value,acc)
         await Account.Set(Key.value.Encrypt(h.toJSON(),true),true)
-        Account.value = UserAccount.fromJSON(Key.value.Decrypt(Account.value,true))
+        Account.value = h
         where.NotShow()
     })
     where.Show()
@@ -1689,90 +1689,53 @@ const Import = async (where) => {
         const cen = document.createElement("div")
         cen.classList.add("center")
         cen.appendChild(He)
+        const cen1 = document.createElement("div")
+        cen1.classList.add("center")
+        const yu = document.createElement("input")
+        yu.classList.add("input-box")
+        yu.style = "margin:25px;"
+        cen1.appendChild(yu)
         cen.style = "margin:25px;"
         const cen2 = document.createElement("div")
         cen2.classList.add("center")
-        const j = new But(cen2,"medium",Language_Handler.LocalLanguage.paste)
-        j.node.addEventListener("click",()=>{
-            if(PlatformReg == "Browser")
+        const j = new But(cen2,"medium",Language_Handler.LocalLanguage.done)
+        j.node.style = "margin:30px;"
+        j.node.addEventListener("click",async ()=>{
+            try
             {
-                navigator.clipboard.readText().then(async (text)=>{
-                    try
-                    {
-                        const JK = JSON.parse(text)
-                        const Key = JK.key
-                        const All = JK.all
-                        const Temp = new Cripto(Key)
-                        Account.value = UserAccount.fromJSON(Temp.Decrypt(All,true))
-                        await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true),true)
-                        where.NotShow()
-                        window.location.reload()
-                    }
-                    catch(err)
-                    {
-                        console.log(err)
-                        if(PlatformReg == "Browser")
-                        {
-                            alert(Language_Handler.LocalLanguage.some)
-                        }   
-                        else if(PlatformReg == "Android")
-                        {
-                            window.plugins.toast.showWithOptions(
-                                {
-                                    message: Language_Handler.LocalLanguage.some,
-                                    duration: "short",
-                                    position: "bottom",
-                                    addPixelsY: 0,  
-                                },
-                            )
-                        }
-                    }
-                }).catch(()=>{})
+                const JK = JSON.parse(yu.value)
+                const Keys = JK.key
+                const All = JK.all
+                const Temp = new Cripto(Keys)
+                Account.value = UserAccount.fromJSON(Temp.Decrypt(All,true))
+                const u = Key.value.Encrypt(Account.value.toJSON(),true)
+                await Account.Set(u,true)
+                where.NotShow()
+                window.location.reload()
             }
-            else if(PlatformReg == "Android")
+            catch(err)
             {
-                cordova.plugins.clipboard.paste(async (text)=>{
-                    try{
-                        const JK = JSON.parse(text)
-                        const Key = JK.key
-                        const All = JK.all
-                        console.log(Key,All)
-                        if(Key != null && All != null)
+                console.log(err)
+                if(PlatformReg == "Browser")
+                {
+                    alert(Language_Handler.LocalLanguage.some)
+                }   
+                else if(PlatformReg == "Android")
+                {
+                    window.plugins.toast.showWithOptions(
                         {
-                            const Temp = new Cripto(Key)
-                            Account.value = UserAccount.fromJSON(Temp.Decrypt(All,true))
-                            await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true),true)
-                            where.NotShow()
-                            window.location.reload()
-                        }
-                        else
-                        {
-                            throw Error("No")
-                        }
-                    }
-                    catch
-                    {
-                        if(PlatformReg == "Browser")
-                        {
-                            alert(Language_Handler.LocalLanguage.some)
-                        }   
-                        else if(PlatformReg == "Android")
-                        {
-                            window.plugins.toast.showWithOptions(
-                                {
-                                    message: Language_Handler.LocalLanguage.some,
-                                    duration: "short",
-                                    position: "bottom",
-                                    addPixelsY: 0,  
-                                },
-                            )
-                        }
-                    }
-                })
+                            message: Language_Handler.LocalLanguage.some,
+                            duration: "short",
+                            position: "bottom",
+                            addPixelsY: 0,  
+                        },
+                    )
+                }
             }
         })
         j.node.style = "margin:30px;"
         where.window.appendChild(cen)
+        where.window.appendChild(cen1)
         where.window.appendChild(cen2)
         where.Show()
 }

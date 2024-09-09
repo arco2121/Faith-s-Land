@@ -8,7 +8,9 @@
     <content src="index.html" />
     <icon src="www/img/logo.png" density="xxxhdpi"/>
     <platform name="browser">
-        <preference name="SplashScreen" value="./www/img/back-logo.png" />
+        <preference name="SplashScreenDelay" value="0"/>
+        <preference name="SplashScreenWidth" value="0" />
+        <preference name="SplashScreenHeight" value="0" />
     </platform>
     <platform name="android">
         <icon background="./www/img/back-logo.png" density="xxxhdpi" foreground="./www/img/for-logo.png" />
