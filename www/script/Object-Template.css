@@ -1029,8 +1029,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: auto;
     min-height: 100px;
+    padding: 10px;
     text-overflow: ellipsis;
     width: 80%;
     border-radius: 19px;

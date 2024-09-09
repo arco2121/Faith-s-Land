@@ -388,23 +388,8 @@ const WelcomeSetup = async () => {
         const temp = WindowManager.ChangeWindow(Wel,Splash)
         setTimeout(async () => {
             let acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value)
-            await Account.Set(Key.value.Encrypt(acc.toJSON(),true))
-            acc = null
-            Account.value = UserAccount.fromJSON(Key.value.Decrypt(Account.value,true))
-            const Screenss = new SplashScreen(Splash.window)
-            const FinalWhen = setInterval(async () => {
-                if(Screenss.End)
-                {
-                    clearInterval(FinalWhen)
-                    await OperativeApp()
-                    Splash.onlyfade = true
-                    Operative.onlyfade = true
-                    const temp = WindowManager.ChangeWindow(Splash,Operative)
-                    setTimeout(() => {
-                        Splash.Destroy()
-                    },temp)
-                }
-            })
+            await Account.Set(Key.value.Encrypt(acc.toJSON(),true),true)
+            window.location.reload()
         },temp)
     })
 }
@@ -1691,7 +1676,7 @@ const Modify = async (where) => {
     DoneFinal.node.addEventListener("click", async () => {
         const acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value)
         const h = UserAccount.Compare(Account.value,acc)
-        await Account.Set(Key.value.Encrypt(h.toJSON(),true))
+        await Account.Set(Key.value.Encrypt(h.toJSON(),true),true)
         Account.value = UserAccount.fromJSON(Key.value.Decrypt(Account.value,true))
         where.NotShow()
     })
@@ -1712,16 +1697,18 @@ const Import = async (where) => {
             if(PlatformReg == "Browser")
             {
                 navigator.clipboard.readText().then(async (text)=>{
-                    try{
+                    try
+                    {
                         const JK = JSON.parse(text)
                         const Key = JK.key
                         const All = JK.all
                         const Temp = new Cripto(Key)
                         Account.value = UserAccount.fromJSON(Temp.Decrypt(All,true))
-                        await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true))
+                        await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true),true)
                         where.NotShow()
+                        window.location.reload()
                     }
-                    catch
+                    catch(err)
                     {
                         console.log(err)
                         if(PlatformReg == "Browser")
@@ -1754,8 +1741,9 @@ const Import = async (where) => {
                         {
                             const Temp = new Cripto(Key)
                             Account.value = UserAccount.fromJSON(Temp.Decrypt(All,true))
-                            await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true))
+                            await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true),true)
                             where.NotShow()
+                            window.location.reload()
                         }
                         else
                         {
@@ -1842,5 +1830,5 @@ const Erase = async () => {
 document.addEventListener("pause",async () => {
     await MusicIndex.Set(indexmusica)
     Account.value.SleepTracker.SetLast()
-    await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true))
+    await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true),true)
 })

@@ -7,10 +7,12 @@
     </author>
     <content src="index.html" />
     <icon src="www/img/logo.png" density="xxxhdpi"/>
-    <preference name="SplashScreen" value="www/img/back-logo.png" />
+    <platform name="browser">
+        <preference name="SplashScreen" value="./www/img/back-logo.png" />
+    </platform>
     <platform name="android">
-        <icon background="www/img/back-logo.png" density="xxxhdpi" foreground="www/img/for-logo.png" />
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/img/back-logo.png" />
+        <icon background="./www/img/back-logo.png" density="xxxhdpi" foreground="./www/img/for-logo.png" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="./www/img/back-logo.png" />
         <preference name="AndroidWindowSplashScreenBackground" value="#FAF8F1" />
         <preference name="StatusBarOverlaysWebView" value="false" />
     </platform>

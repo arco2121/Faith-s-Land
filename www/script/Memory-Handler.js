@@ -43,7 +43,7 @@ class Memory
             return user
         }
     }
-    async Set(data)
+    async Set(data,rt)
     {
         if(typeof data == "object")
         {
@@ -61,7 +61,10 @@ class Memory
         {
             this.JSONA ? localStorage.setItem(this.key,JSON.stringify(data)) : localStorage.setItem(this.key,data)
         }
-        this.value = data
+        if(!rt)
+        {
+            this.value = data
+        }
     }
     static async RemoveAll()
     {
