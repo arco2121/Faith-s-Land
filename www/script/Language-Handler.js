@@ -348,6 +348,10 @@ if(PlatformReg == "Android")
 {
     Determinate = async () => 
     {
+        if(!await Key.Get())
+        {
+            Memory.RemoveAll()
+        }
         if (!await Lang.Get()) 
         {
             try 
@@ -450,10 +454,6 @@ if(PlatformReg == "Android")
         } 
         else 
         {
-            if(!await Key.Get())
-            {
-                Memory.RemoveAll()
-            }
             await Lang.Get()
             document.documentElement.lang = Lang.value
             Language_Handler = new LanguageHandler(Lang.value);
@@ -464,6 +464,10 @@ else
 {
     Determinate = async () => 
     {
+        if(!await Key.Get())
+        {
+            Memory.RemoveAll()
+        }
         if (!await Lang.Get()) 
         {
             try 
@@ -513,10 +517,6 @@ else
         } 
         else 
         {
-            if(!await Key.Get())
-            {
-                Memory.RemoveAll()
-            }
             await Lang.Get()
             document.documentElement.lang = Lang.value
             Language_Handler = new LanguageHandler(Lang.value);
