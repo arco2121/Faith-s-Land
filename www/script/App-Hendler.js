@@ -607,7 +607,7 @@ const OperativeApp = async () => {
                         Done9.node.style.margin = "30px"
                         data.window.style.flexDirection = "column"
                         Done9.node.addEventListener("click",() => {
-                            if(box9.value == "" || box9.value <= 0 || box9.value > 10)
+                            if(box9.value == "" || box9.value <= 0 || box9.value > 10 || isNaN(box9.value))
                             {
                                 const Wrong = new ErrorSplash()
                             }
@@ -651,7 +651,7 @@ const OperativeApp = async () => {
                 Done9.node.style.margin = "30px"
                 data.window.style.flexDirection = "column"
                 Done9.node.addEventListener("click",() => {
-                    if(box9.value == "" || box9.value <= 0)
+                    if(box9.value == "" || box9.value <= 0 || isNaN(box9.value))
                     {
                         const Wrong = new ErrorSplash()
                     }
