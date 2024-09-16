@@ -75,7 +75,7 @@ const Moods = {
 
 class UserAccount
 {
-    constructor(name,img64,age,height,weight,sex,sleepstart,sleepend,steps)
+    constructor(name,img64,age,height,weight,sex,sleepstart,sleepend,steps,year)
     {
         this.name = name
         this.img = img64
@@ -83,6 +83,14 @@ class UserAccount
         this.height = height
         this.weight = weight
         this.sex = sex
+        this.Year = year != null ? year : new Date().getFullYear()
+        this.Check = setInterval(()=>{
+            if(this.Year != new Date().getFullYear())
+            {
+                this.age++
+                this.Year = new Date().getFullYear()
+            }
+        },0)
         this.secretkey = Language_Handler.GenSecretKey()
         this.Criptografy = new Cripto(this.secretkey)
         this.SleepTracker = new SleepTracker(SleepUnit.CreateUnit(sleepstart,sleepend))
@@ -114,11 +122,12 @@ class UserAccount
             HealthTracker : this.HealthTracker.toJSON(),
             meditationTime: this.meditationTime,
             MoodTracker: this.MoodTracker.toJSON(),
+            Year : this.Year
         };
     }
     static fromJSON(data) 
     {
-        const account = new UserAccount(data.name,data.img ,data.age, data.height,data.weight, data.sex, '', '');
+        const account = new UserAccount(data.name,data.img ,data.age, data.height,data.weight, data.sex, '', '',data.Year);
         account.secretkey = data.secretkey;
         account.Criptografy = Cripto.fromJSON(data.Criptografy);
         account.SleepTracker = SleepTracker.fromJSON(data.SleepTracker);

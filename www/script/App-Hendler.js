@@ -387,7 +387,7 @@ const WelcomeSetup = async () => {
         const Splash = new WindowManager("splash1",false)
         const temp = WindowManager.ChangeWindow(Wel,Splash)
         setTimeout(async () => {
-            let acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value)
+            let acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value, new Date().getFullYear())
             await Account.Set(Key.value.Encrypt(acc.toJSON(),true),true)
             window.location.reload()
         },temp)
@@ -1674,7 +1674,7 @@ const Modify = async (where) => {
         WindowManager.ChangeWindow(sub10,sub5)
     })
     DoneFinal.node.addEventListener("click", async () => {
-        const acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value)
+        const acc = new UserAccount(box.value,base64String,parseInt(box2.value),parseInt(box11.value),parseInt(box3.value),MorF.Selected()[0].textContent,box8.value,box88.value,box9.value,new Date().getFullYear())
         const h = UserAccount.Compare(Account.value,acc)
         await Account.Set(Key.value.Encrypt(h.toJSON(),true),true)
         Account.value = h
