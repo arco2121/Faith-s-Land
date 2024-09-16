@@ -168,6 +168,8 @@ const Language = {
         "angry": "Angry",
         "sleepy": "Sleepy",
         "newchat":"New Chat",
+        "noti":"Not an image",
+        "fulls":"Max resolution (2,50MB)",
     },
     "it" : {
         "Edges" : {
@@ -338,6 +340,8 @@ const Language = {
         "scared": "Spaventato",
         "angry": "Arrabbiato",
         "sleepy": "Assonnato",
+        "noti":"Non è un'immagine",
+        "fulls":"Limite dimensioni (2,50MB) superato",
 }
 }
 const Permesso = new Memory("GeoPermission")

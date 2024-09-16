@@ -7,6 +7,7 @@ const Lirics = [document.getElementById("l0"),document.getElementById("l1"),docu
     document.getElementById("l3"),document.getElementById("l4"),document.getElementById("l5"),document.getElementById("l6"),
     document.getElementById("l7"),document.getElementById("l8"),document.getElementById("l9")
 ]
+const MAX_FILE_SIZE = 2.5 * 1024 * 1024
 let Network
 let Format
 let indexmusica = 0
@@ -242,6 +243,7 @@ const WelcomeSetup = async () => {
     const box10 = document.createElement("input")
     box10.classList.add("input-box")
     box10.type = "file"
+    box10.accept = "image/*"
     const view = document.createElement("img")
     view.classList.add("preview-img")
     let base64String
@@ -250,22 +252,63 @@ const WelcomeSetup = async () => {
     view.addEventListener("click",() => {
         box10.click()
     })
-    box10.addEventListener("change",(event) => {
+    box10.addEventListener("change", (event) => {
         const file = event.target.files[0];
-        const reader = new FileReader()
-        reader.onloadend = () => {
-            base64String = reader.result; 
-            view.src = base64String
-        }
+    
         if(file) 
         {
+            if (!file.type.startsWith('image/')) {
+                if(PlatformReg == "Browser")
+                {
+                    alert(Language_Handler.LocalLanguage.noti)
+                }   
+                else if(PlatformReg == "Android")
+                {
+                    window.plugins.toast.showWithOptions(
+                        {
+                            message: Language_Handler.LocalLanguage.noti,
+                            duration: "short",
+                            position: "bottom",
+                            addPixelsY: 0,  
+                        },
+                    )
+                }
+                return
+            }
+    
+            if (file.size > MAX_FILE_SIZE) {
+                if(PlatformReg == "Browser")
+                {
+                    alert(Language_Handler.LocalLanguage.fulls)
+                }   
+                else if(PlatformReg == "Android")
+                {
+                    window.plugins.toast.showWithOptions(
+                        {
+                            message: Language_Handler.LocalLanguage.fulls,
+                            duration: "short",
+                            position: "bottom",
+                            addPixelsY: 0,  
+                        },
+                    )
+                }
+                return
+            }
+    
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const baseString = reader.result; 
+                view.src = baseString;
+                base64String = baseString
+            };
+            
             reader.readAsDataURL(file);
-            imgchange = !imgchange
-        }
-        else
+            imgchange = false
+        } 
+        else 
         {
-            view.src = operativepath + "Add.png"
-            imgchange = !imgchange
+            view.src = operativepath + "Add.png";
+            imgchange = true
         }
     })
     text10.textContent = Language_Handler.LocalLanguage.setupimg
@@ -1547,6 +1590,7 @@ const Modify = async (where) => {
     const box10 = document.createElement("input")
     box10.classList.add("input-box")
     box10.type = "file"
+    box10.accept = "image/*"
     const view = document.createElement("img")
     view.classList.add("preview-img")
     let base64String
@@ -1555,22 +1599,63 @@ const Modify = async (where) => {
     view.addEventListener("click",() => {
         box10.click()
     })
-    box10.addEventListener("change",(event) => {
+    box10.addEventListener("change", (event) => {
         const file = event.target.files[0];
-        const reader = new FileReader()
-        reader.onloadend = () => {
-            base64String = reader.result; 
-            view.src = base64String
-        }
+    
         if(file) 
         {
+            if (!file.type.startsWith('image/')) {
+                if(PlatformReg == "Browser")
+                {
+                    alert(Language_Handler.LocalLanguage.noti)
+                }   
+                else if(PlatformReg == "Android")
+                {
+                    window.plugins.toast.showWithOptions(
+                        {
+                            message: Language_Handler.LocalLanguage.noti,
+                            duration: "short",
+                            position: "bottom",
+                            addPixelsY: 0,  
+                        },
+                    )
+                }
+                return
+            }
+    
+            if (file.size > MAX_FILE_SIZE) {
+                if(PlatformReg == "Browser")
+                {
+                    alert(Language_Handler.LocalLanguage.fulls)
+                }   
+                else if(PlatformReg == "Android")
+                {
+                    window.plugins.toast.showWithOptions(
+                        {
+                            message: Language_Handler.LocalLanguage.fulls,
+                            duration: "short",
+                            position: "bottom",
+                            addPixelsY: 0,  
+                        },
+                    )
+                }
+                return
+            }
+    
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const baseString = reader.result; 
+                view.src = baseString;
+                base64String = baseString
+            };
+            
             reader.readAsDataURL(file);
-            imgchange = !imgchange
-        }
-        else
+            imgchange = false
+        } 
+        else 
         {
-            view.src = operativepath + "Add.png"
-            imgchange = !imgchange
+            view.src = operativepath + "Add.png";
+            imgchange = true
         }
     })
     text10.textContent = Language_Handler.LocalLanguage.setupimg
