@@ -1,5 +1,5 @@
 const Preferences = false
-const PlatformReg = "Browser"
+const PlatformReg = "Android"
 
 class Memory
 {
