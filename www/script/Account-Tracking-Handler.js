@@ -364,7 +364,7 @@ class SleepTracker
                 const en = new Date()
                 st.setHours(start.split(":")[0],start.split(":")[1])
                 en.setHours(end.split(":")[0],end.split(":")[1])
-                const final = new SleepUnit(st,en,en-st,day)
+                const final = new SleepUnit(st,en,(en-st) < 0 ? 1440000 + (en-st) : en-st ,day)
                 const message = this.CompareToMessage(final)
                 this.rec[i] = [final,message]
                 this.rec.sort((a, b) => b[0].time.localeCompare(a[0].time))
@@ -379,7 +379,7 @@ class SleepTracker
             const en = new Date()
             st.setHours(start.split(":")[0],start.split(":")[1])
             en.setHours(end.split(":")[0],end.split(":")[1])
-            const final = new SleepUnit(st,en,en-st,day)
+            const final = new SleepUnit(st,en,(en-st) < 0 ? 1440000 + (en-st) : en-st ,day)
             const message = this.CompareToMessage(final)
             this.rec.push([final,message])
             this.rec.sort((a, b) => b[0].time.localeCompare(a[0].time))

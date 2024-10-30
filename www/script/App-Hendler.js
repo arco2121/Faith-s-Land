@@ -1875,7 +1875,7 @@ const Erase = async () => {
 }
 
 /*Chiusura App*/
-document.addEventListener("pause",async () => {
+window.addEventListener("beforeunload",async () => {
     await MusicIndex.Set(indexmusica)
     Account.value.SleepTracker.SetLast()
     await Account.Set(Key.value.Encrypt(Account.value.toJSON(),true),true)
