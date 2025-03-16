@@ -39,5 +39,8 @@
       "android",
       "browser"
     ]
+  },
+  "dependencies": {
+    "openai": "^4.87.3"
   }
 }

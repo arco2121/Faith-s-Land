@@ -1,0 +1,164 @@
+/*SplashScreen*/
+.splashscreen
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%,-50%);
+}
+.back-icon
+{
+    width: 310px;
+    scale: 0;
+    display: flex;
+    height: 310px;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+.fore
+{
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    background: var(--font);
+    border-radius: 100%;
+    transform: translate(-50%,-50%); 
+    z-index: 2;
+    scale: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    transform-origin: top left;
+}
+.center-icon
+{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 200%;
+    display: none;
+    scale: 0;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    z-index: 3;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    transform-origin: top left;
+}
+@keyframes back 
+{
+    0%
+    {
+        scale: 0.5;
+        rotate: -275deg;
+    }
+    75%
+    {
+        scale: 1.1;
+        rotate: 45deg;
+    }
+    100%
+    {
+        scale: 1;
+        rotate: 0deg;
+    }
+}
+@keyframes fore
+{
+    0%
+    {
+        scale: 0;
+        transform: translate(-50%,-50%); 
+    }
+    75%
+    {
+        scale: 1.1;
+        transform: translate(-50%,-50%); 
+    }
+    100%
+    {
+        scale: 1;
+        transform: translate(-50%,-50%); 
+    }
+}
+@keyframes fore-out
+{
+    0%
+    {
+        scale: 1;
+        transform: translate(-50%,-50%); 
+    }
+    100%
+    {
+        scale: 0;
+        transform: translate(-50%,-50%); 
+    }
+}
+@keyframes Opening0 
+{
+    0%
+    {
+        top: 200%;
+        scale: 1.8;
+    }
+    75%
+    {
+        scale: 1.8;
+        top: 70%;
+    }
+    100%
+    {
+        top: 80%;
+        scale: 1.8;
+    }
+}
+@keyframes Opening3
+{
+    60%
+    {
+        scale: 1.9;
+        rotate: 15deg;
+    }
+    100%
+    {
+        scale: 1.8;
+        rotate: 0deg;
+    }
+}
+@keyframes out 
+{
+    100%
+    {
+        left: -100%;
+    }   
+}
+@keyframes rot 
+{
+    0%
+    {
+        rotate: -360deg;
+        scale: 1;
+    } 
+    45%
+    {
+        scale: 0.4;
+    }   
+    75%
+    {
+        rotate: 0deg;
+        scale: 1;
+    }
+    100%
+    {
+        rotate: 0deg;
+        scale: 1;
+    }
+}
+/**/
