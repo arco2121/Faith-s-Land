@@ -1,3 +1,27 @@
+@font-face 
+{
+    font-family: "Main";
+    font-weight: 800;
+    src: url("./font/Nunito.ttf");
+}
+@font-face 
+{
+    font-family: "Sub";
+    font-weight: 400;
+    src: url("./font/Nunito.ttf");
+}
+@font-face 
+{
+    font-family: "Title";
+    font-weight: 900;
+    src: url("./font/Nunito.ttf");
+}
+@font-face 
+{
+    font-family: "UpTitle";
+    font-weight: 1000;
+    src: url("./font/Nunito.ttf");
+}
 /*SplashScreen*/
 .splashscreen
 {

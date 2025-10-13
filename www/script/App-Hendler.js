@@ -68,9 +68,9 @@ window.addEventListener("load",()=>{
               }
           }
         }
-        catch
+        catch(e)
         {
-      
+            console.log(e)
         }
       },50)
 })
